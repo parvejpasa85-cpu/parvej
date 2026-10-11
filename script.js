@@ -668,4 +668,18 @@
       if (Math.abs(dx) > 50) show(dx < 0 ? idx + 1 : idx - 1);
     });
   }
+  /* ---------- G. Pause glimpse videos when out of view ---------- */
+(function pauseVideos() {
+  const vids = document.querySelectorAll(".glimpse-video video");
+  if (!vids.length || !("IntersectionObserver" in window)) return;
+  const vio = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting && !e.target.paused) e.target.pause();
+      });
+    },
+    { threshold: 0.25 }
+  );
+  vids.forEach((v) => vio.observe(v));
+})();
 })();

@@ -1377,3 +1377,97 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .soc-instagram:hover .soc-ico { background: linear-gradient(45deg, #feda75, #fa7e1e 25%, #d62976 55%, #962fbf 78%, #4f5bd5); }
 .soc-x         { --brand: #fff;    --on: #000;    --glow: rgba(255, 255, 255, .4); }
 .soc-email     { --brand: #ea4335; --on: #fff;    --glow: rgba(234, 67, 53, .65); }
+/* ====== GLIMPSES (video section) ====== */
+.glimpses-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+@media (max-width: 900px) {
+  .glimpses-grid { grid-template-columns: 1fr; }
+}
+
+.glimpse-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s cubic-bezier(.2,.8,.2,1),
+              border-color 0.5s, box-shadow 0.5s;
+}
+.glimpse-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(140, 240, 208, 0.35);
+  box-shadow: 0 30px 70px -30px rgba(140, 240, 208, 0.35);
+}
+
+.glimpse-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #05080c;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.glimpse-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
+.glimpse-badge {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  z-index: 3;
+  font-family: ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  color: #050607;
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  box-shadow: 0 6px 20px -6px rgba(140, 240, 208, 0.7);
+  pointer-events: none;
+}
+
+.glimpse-body {
+  padding: 1.4rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  flex: 1;
+}
+.glimpse-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+.glimpse-desc {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.glimpse-meta {
+  margin-top: auto;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+.glimpse-meta .tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(140, 240, 208, 0.25);
+  background: rgba(140, 240, 208, 0.06);
+}
